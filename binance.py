@@ -60,7 +60,12 @@ def get_data():
         f"📢 Channel : @Et_Cryptopia\n"
         f"💻Developer : @BEK_I"
     )
-
+@app.route('/webhook', methods=['POST'])
+def webhook():
+    json_str = request.get_data().decode('UTF-8')
+    update = telebot.types.Update.de_json(json_str)
+    bot.process_new_updates([update])
+    return '!', 200
 # Start command
 # Start command
 @bot.message_handler(commands=['start', 'Start'])
@@ -238,5 +243,10 @@ For any questions or further information, feel free to reach out!
     bot.send_message(call.message.chat.id, crypto_addresses, parse_mode="html")
 
 # Start polling
-print("Bot is running...")
-bot.infinity_polling()
+bot.remove_webhook()  # Remove any existing webhook
+bot.set_webhook(url='https://your_domain.com/webhook')  # Replace with your actual domain
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=PORT)
+    print("Bot is running...")
+
