@@ -1,0 +1,4 @@
+pytelegrambotapi
+python-dotenv
+pandas
+requests
