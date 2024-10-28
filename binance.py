@@ -245,7 +245,7 @@ For any questions or further information, feel free to reach out!
 
 # Start polling
 bot.remove_webhook()  # Remove any existing webhook
-bot.set_webhook(url='https://your_domain.com/webhook')  # Replace with your actual domain
+bot.set_webhook(url='https://spatial-natka-brightcodes-c01c5910.koyeb.app/webhook')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=PORT)
