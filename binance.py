@@ -8,7 +8,11 @@ from dotenv import load_dotenv
 load_dotenv()
 BOT_TOKEN = os.getenv('API_TOKEN')
 
+PORT = int(os.environ.get('PORT', 8000))  # Get the port from the environment variable or use 8000 as default
+
 bot = telebot.TeleBot(BOT_TOKEN)
+
+app = Flask(__name__)
 
 
 
