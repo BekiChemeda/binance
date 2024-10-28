@@ -6,9 +6,9 @@ import pandas as pd
 from dotenv import load_dotenv
 
 load_dotenv()
-API_TOKEN = os.getenv('API_TOKEN')
+BOT_TOKEN = os.getenv('API_TOKEN')
 
-bot = telebot.TeleBot(API_TOKEN)
+bot = telebot.TeleBot(BOT_TOKEN)
 
 
 
